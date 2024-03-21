@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <link href="img/" rel="shortcut icon" type="image/x-icon">
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Suez One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Slab', serif;
+
+        }
+
+        .body {
+            width: 100%;
+            padding: 100%;
+            background-color: #f6f6f6;
+
+        }
+
+        a {
+
+            text-decoration: none;
+            transition: all .6s ease;
+        }
+
+        a:hover {
+            color: #34495e;
+            text-decoration: none;
+            transition: all .6s ease;
+
+        }
+
+        #about > a {
+            color: white;
+        }
+
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto \9;
+
+        }
+
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 1em 0;
+            padding: 0;
+        }
+
+        header {
+            float: left;
+            background-color: #34495e;
+            width: 99.4%;
+            padding: 0.3%;
+            border-bottom: 5px solid #59595a;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        header > div#logo > a > img {
+
+            width: 50px;
+            height: 50px;
+            float: left;
+        }
+
+        header > div#logo > a > span {
+            color: white;
+            font-size: 2.5em;
+            margin-left: 10px;
+            font-family: 'Suez One', serif;
+        }
+
+        header > div#logo > a > img {
+            margin-left: 15%;
+        }
+
+        #logo {
+            float: left;
+            width: 30%;
+        }
+
+        #about {
+            font-size: 22px;
+            float: left;
+            font-size: 1.4em;
+            width: 37%;
+            padding-top: 10px;
+
+        }
+
+        #about > a:hover {
+            color: #dfdfdf;
+            border-bottom: 1px solid silver;
+        }
+
+        #about > a:last-child {
+            margin-left: 10%;
+        }
+
+        #reg_auth {
+            float: right;
+            width: 30%;
+
+        }
+
+        #reg_auth > a {
+            color: white;
+        }
+
+        #reg_auth > a > div {
+            float: right;
+            margin-right: 3%;
+            margin-top: 5px;
+            border-radius: 5px;
+            padding: 5px 9px;
+            font-size: 1.2em;
+            background-color: #3498db;
+            text-shadow: #454545 0 0 2px;
+            color: white;
+            border-bottom: 4px solid #3498db;
+            font-size: 22px;
+        }
+
+        #reg_auth > a:hover > div {
+            margin-top: 7px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        #reg_auth > a:active > div {
+            margin-top: 9px;
+            border-bottom: 0;
+        }
+
+        /*Конец стилей для шапки сайта*/
+
+        /*Меню сайта
+
+         */
+        nav {
+            background-color: white;
+            width: 99.4%;
+            padding: 13px 0.3%;
+            float: left;
+            border-bottom: 5px solid #ebebeb;
+
+        }
+
+        nav > a {
+            color: #3498db;
+            font-size: 1.5em;
+            margin-left: 5%;
+            cursor: pointer;
+        }
+
+        nav > a:hover {
+            color: red;
+        }
+
+        nav > a:last-child {
+            margin-right: 15px;
+        }
+
+        nav:hover.fixed {
+            opacity: 1;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            opacity: 0.97;
+            padding: 13px 0.3%;
+        }
+
+        .fixed a {
+            font-size: 1.3em;
+        }
+
+        .fixed:hover {
+            opacity: 1;
+        }
+
+        .fixed #search {
+            font-size: 1.2em;
+        }
+
+        #search {
+            float: right;
+            color: #3498db;
+            cursor: pointer;
+            font-size: 1.4em;
+            margin-right: 100px;
+        }
+        #search:hover {
+            color: red;
+        }
+
+        #top h1 {
+            padding-top: 20%;
+        }
+
+
+        #top {
+            width: 100%;
+            background-image: url("https://st3.depositphotos.com/3228285/14221/i/600/depositphotos_142210114-stock-photo-flying-bullet-with-air-trail.jpg");
+            background-blend-mode: multiply;
+            background-color: #2e3a44;
+            background-size: cover;
+            text-align: center;
+            color: #7c7c7c;
+            padding-bottom: 20%;
+
+        }
+
+        @media (min-width: 1001px) {
+            #top {
+                font-size: 3em;
+                height: 1000px;
+            }
+        }
+
+        @media (max-width: 1000px) and (min-width: 651px) {
+            #top {
+                font-size: 2em;
+                height: 600px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            #top {
+                font-size: 1.3em;
+                padding-top: 50%;
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            #top {
+                font-size: 0.9em;
+            }
+        }
+
+        #top span {
+            color: red
+        }
+
+        #overview {
+            float: left;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSZHk5VbH_Tl76W5L4CEfl8Vyq9njoO_atn4FWof5UP1kfzSTwc&usqp=CAU);
+
+            background-blend-mode: multiply;
+            background-color: #403f40;
+            background-size: cover;
+            background-attachment: fixed;
+
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        #overview h2 {
+            font-size: 4em
+        }
+
+        #overview h3 {
+            font-size: 3em
+        }
+
+        #overview h4 {
+            color: #ccc;
+            font-size: 1.5em
+        }
+
+        @media (min-width: 561px) {
+            #overview h2 {
+                font-size: 4em
+            }
+        }
+
+        @media (max-width: 560px) {
+            #overview h2 {
+                font-size: 2em
+            }
+        }
+
+
+        #overview .img:nth-child(event) {
+            margin-left: 18%;
+        }
+
+        #overview img {
+            margin: 50px;
+            display: inline-block;
+            background: #fafafa;
+            padding: 5px;
+            border: 2px solid silver;
+            width: 100%;
+            max-width: 300px;
+            max-height: 300px;
+
+        }
+
+        #overview img2 {
+            display: inline-block;
+            background: #fafafa;
+            padding: 5px;
+            border: 2px solid silver;
+            width: 100%;
+            max-width: 300px;
+            max-height: 300px;
+        }
+
+        #overview img3 {
+            display: inline-block;
+            background: #fafafa;
+            padding: 5px;
+            border: 2px solid silver;
+            width: 100%;
+            max-width: 300px;
+            max-height: 300px;
+        }
+
+        #overview img4 {
+            display: inline-block;
+            background: #fafafa;
+            padding: 5px;
+            border: 2px solid silver;
+            width: 100%;
+            max-width: 300px;
+            max-height: 300px;
+        }
+
+        #overview img5 {
+            display: inline-block;
+            background: #fafafa;
+            padding: 5px;
+            border: 2px solid silver;
+            width: 100%;
+            max-width: 300px;
+            max-height: 300px;
+        }
+
+        #overview span {
+            float: left;
+            width: 100%;
+            font-size: 2em;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 700px) {
+            #overview .img {
+                width: 80% !important;
+                margin-right: 0 !important;
+                margin-left: 10% !important;
+            }
+        }
+
+        #top h2 {
+            color: red;
+            font-family: 'Suez One', serif;
+        }
+
+        .bullet {
+            width: 500px;
+        }
+
+        #span_id{
+            font-size: 0.5em;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div id="logo">
+        <a href="bullet.com" title="На главную">
+            <img src="data:image/jpeg;base64,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">
+            <span>"The Bullet"</span>
+        </a>
+    </div>
+    <div id="about">
+        <a href="" title="Learn more about advertising">Реклама</a>
+        <a href="" title="Send us an email">Обратная связь</a>
+    </div>
+
+        <a href="" title="Login to user account">
+            <div id="btnLogin">
+                Войти
+            </div>
+        </a>
+        <a href="" title="Register on the site">
+            <div id="btnRegis">
+                Регистрация
+            </div>
+        </a>
+    </div>
+
+</header>
+<nav>
+    <a th:href="@{/show-products/{id}(id = ${user.id})}">Товары</a>
+    <a th:href="@{/show-shopping-cart/{id}(id = ${user.id})}">Корзина</a>
+    <a th:href="@{/user-profile/{id}(id = ${user.id})}">Личный кабинет</a>
+
+    <a href="">Загнать грев братве</a>
+
+    <div id="search">
+        <span>Поиск</span>
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </div>
+
+</nav>
+<div id="top">
+
+    <h4>Вас приветствует</h4>
+    <h4>Интернет Магазин</h4>
+    <h2>"Пуля!"</h2>
+    <img class="bullet"
+         src="https://st3.depositphotos.com/3228285/14221/i/600/depositphotos_142210114-stock-photo-flying-bullet-with-air-trail.jpg"
+         align="top">
+    <br>
+    <h4>У нас вы можете приобрести </h4>
+    <h4>Товары кому какие по кайфу!</h4>
+    <br>
+    <span>Наш сайт был разработан (в местах не столь отдалённых) ведущими разработчиками, приобретай товары в нашем магазине (С нами проще)!</span>
+    <p id="span_id">!Сайт является шуточным, все товары не соответствуют действительности!</p>
+    <br>
+    <img class="bullet" src="https://enigma-project.ru/wp-content/uploads/2015/06/pulya-1.jpg">
+</div>
+
+
+<div id="overview">
+    <h3>В нашем ассортименте:</h3>
+    <h3>Финки</h3>
+    <div class="img">
+        <img src="https://icdn.lenta.ru/images/2021/05/20/17/20210520170229654/pic_548b08f1e30f60337e503c2dc19bf435.jpg">
+    </div>
+    <h3>Маузеры</h3>
+    <div class="img2">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSExMTEhUVFxYVFhcXEhcXEhcQGBUYFxUWGBUYHSggGBolHRcVITIhJSkrLi4uFx8zODMtNygtLi0BCgoKDg0OGhAQGisdHSUvLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0rLTctN//AABEIAK4BIQMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABgIDBAUHAQj/xABOEAACAQICBQYJBQsLBQAAAAAAAQIDEQQhBQYSMUETUWFxgZEHIlJUkqGx0dIUFnKCwTJCQ1Nik6KzwuHwIyQ0VYOUo7LT4vEVF0Rjc//EABkBAQEBAQEBAAAAAAAAAAAAAAABAgQDBf/EAB8RAQEAAgIDAQEBAAAAAAAAAAABAhEDMRIhUUEiBP/aAAwDAQACEQMRAD8A7iAAAAAAAADA0vpOOHjGUozlGU1BuKT2b/fSu14vVc12lNb8LQlsyk21wjbt3tbtwEgBg6I0tSxMNum7rinvV729j7mZwAAt1K0YpttJJXd3wAuAjeD12wlStKip+NHJ5xy+kr3S/hkgo14zV4yUluundXAuAAAAAAAAAAAAAAAAAAAAAAAAA8bNNS1swMmksVRu915pe0DdAAAAAAAAEc1407LCUNqC8eTaWV7JK7duckZgaZ0VTxNN06iye5renzkvSztA4aYx1OoqVedpypqolGd9mLdtmWzZX6vWbrB64KEXGspylFtbUYp+LsqScs1nnbLmI9/0mOFqTppJNb2r+MrXTzbfHdwz6zX17N1Hdq8rd0Yc5jdjepWbp/WitVo1pxntUrTnCDjFJwjdxvLZ2luT9+4h1eFWcYydOk5q97YpbLTk5JpSpXTV7G40W1HDx5RpxjBbbeSsvum+Zby7jNL6Mz2406s298Enl023m7lpmTbC0asRdWlSpRjDZsqjqyk9pycmlGKW82dKdVuSdV+K7ZK33qd975zWz0rQknHDqME3HZppWbe1FdvHPmNhSvt1VzSj+ppll2lml10m985vtS9iHyWGTtuaf3T3p3TzfQVJnkpFRq5aPjh+Urwk24qrOMXbZUqktqeaV3ne13xN/qxrFVpwVS0ZKrCnJxzSUtnes+ZpfVRqNKv+Qq/QkeaHl/IUl/66f+RFk9lTmjrnPaW3Tjs3V9na2lG+bS4u3DiSmGkaTSammnmms009zT4o5XGZlYXSFSllCWTz2ZLahd73a6afU1xe9i4/El+umfLaflI8+X0/KXc/cc8qacrvjGP0YWf6TkY1XSlZqzqVLdD2X3xsZ1V9J3pzWjDYWm51Kiuk3GmmuUnbhFO1yKf928N+Ir/4fxEXqaLozk5ThKcnvcqlSUn1tyuyl6Hwqu3RVkru86mSWbf3RfE26Fozwi4CrFOVXkJP72orPfzq6M7566O87o+kfO2rdHBVNqWKk9pvJSk4q3S0nZm7lgtEL8X+em/2Rodu+emjvO6PpD56aO87o+mcOlhtErhD87U+E85DRPNDq5Sr8I0O5fPXR3ndH0h89dHed0fSOF8nopcIenU9xTbRXND0qnuIO6/PbR3ndH0h89tHed0fSOFOWivJh31Qp6K8mHdVGh3X576O87o+kPnto7zuj6RwrltE+RHuq+885fRPkR9Gr8QHdvnvo7zyj6Z58+NHed0fSOEvFaJ/Fr0anxD5Zon8X+hP4i6Ha8br7gVF7OJot2f365uY49PRWiXur7N+at70zF+XaJ4Uf8OfxB6U0Zwo/wCFL4gPoXV3GU62GpTpzVSOxFbSafjRSUk2uKadzZES8F9WlPARlSjsQc52Wzs8Um7ddyWmYUABQAAAHkpJK7yS9hq62seEhk8RSX1kBGNaYr5VLqj/AJUQTTWLlQdV1NuMG1KDjGLThsJTV3bxrp+olmtmlafLSqRba8VKybbdlFJLrI1pKSr05UqkK0oS2W1eKzjJSW63FIxZtuXSOYp1KsaFOjVqwVaOyovZd1NtJSVnwedj2nqnjcksRRXY3+yZ2I0ZfYUVWhya2YuOxe3Te+fSYktBPh8o/OfvZpleparY+LusVRTXHY/2F6GrukE5P5bBOTu/Febsl5PMl3GrehrtLbqq8tnOpN2dpN5XWfiNdqea33Z6vxX4Wq/rv3l2abF6A0hxx0PR/wBp49AY7jj4+i/hNZ83o/jK35wrpauQ8ur21WNjMrasYycWpY+DTya3PusiinqzjElFaQaSSSScrKKySKI6tUn99P8AOy95Q9W6af3VTO++bdrRburdVu0DJ+bOM/rGf6XvKlq1i/6xqd8viNdDQUH5fpyMmGrVJ75z6ryf2lF/5tYnjpGp3v4w9Wa/9Y1PX/qFtatUvyn1yka7WPQKp0OUptpxnG+bd4yajbozt39AG2qasVYwnN6QqVXHZtTjOptzbnGOWduJ5R1Kx+InTU3iOTTWU+T2VG+d1yt315slGoeqSboYpSjGOznBU1tSl4yu6jd+Ky6DqtDDJIg5bg/BLQ/CNy6lb2mxp+CXBeTLvXuOkJHpdo54vBRgfIl3r3FyPgswKd9iV/pfuJ+CCCvwY4B5uk39Yrj4M8AvwP6TJuAIUvBtgPxC72Vx8HGA/ER737yZACILweYDzeHe/eVrwf4HzeHr95LABFlqHgfN6fc/eVrUjBL/AMel6JJgBHFqbg/N6XoIv0dU8Et+Gov6iN4ALWGw8KcVCEVCK3KKsl2IugAAAAAAGu1hwU62Gq0oPZlODUXe1n18Dk+F1er4d2nQcYwTe5Wbys2755u9+87SaTW3DSnh5OCi5Rzzi2tm6vkms8kS/Vl/HKsa96nF3spJbXC72Xdbs4vPoMOVeS4y/OSf2mbjottSag3aMFspqNtp2vdvjNlv5Fzyj2QkvbIqsSVaXlS9OXvPVVl5UvTl7zKeE/Kj6D+ItPBy4Sj6D+ImjcWoqzj/APTr/BVn25l9w6PUWakNlx2mrKacm3klydSKd+a8oLrlYzqNNyb2EpW3u9oR65c/Qu1q6LEqzGnfcl3FGxZ2aVuouYjGUoZSrxT/ACUl6pKXtLVPSFGTsqyb6dlL1UwPYwV93qL8Vuf0vXFl7Zyu0rO+cVl3K9+O53/JKZLjlnazTunfc0+O8oxKcbF+GRabPU7lRl02a7WpXwdXrpfroGTGVjB1n/olX+y/X0yXpY6n4Paf8zov8n7WSwi/g6/oNLqftZKCIAAAAAAAAAAAAAAAAAAAAAAAAAAAeSjdNPjkelNSaim27JJtvgkt7A5PrFg9mpJRtZyvHybxnmstyvFrovxNc3Lmh6cvgMfSesFWrUqbChsOrUnC8XtKMnuyfQjD+UV996S+pP4zyx5sb+ve8GfxtNibztC305fAUzpzXCl21XH2wNJjNPVqSuuTeWXiSTXTfadn2Gy0FqzPFRVWtKXjK+ztWS6HbibmcvTGWFx7ZUaTk/uqd+P8pGyVrc93ZLt5uBptK46pWqfJcNmlZOSfHn6OP/O/eaa8Gs+TcsLVntpN7EndT6E+D5uBX4NNXXGFacntTVRRb+pGWV+dOPcaYajAalLbjGclUnLx5KycY007Nyum23uSvz82c0w+oOBmrSoU+tRUX3xszYav0VKviE/ulyVufk9mSX6aqd5LcPhUiY9LXK9Natz0cuWoylVw10qtKb2nTi3ZSjLe43te+a335sHE0YpqUd0ltRd3bO9/F3KWbu0k3d33nXtJ4ONSnOnJXjOMotc8ZJpnGdFScsLTbzcW4+pe4qPbHkStlJUXEjX6yP8Amlb+z/XUzMUjC1g/otbqp/rqZK1HWfBw/wCY0up+0lJE/Bq/5jS7faSwMgAAAAAAAAAAAAAAAAAAAAAAAAAAEN8KWmfk+DcIu06z2Fna0N833WX1iZHCfCVpj5TjJKL8Sl/Jx7H4z6Lu/YkeXLlrF68OPlk0OCryW/Pjuz/d1tmY9IRlvy6d6/f2XNfSVl/Gb+jx62WsXO0W+PXn3/YjnmPp2XO7VN8pUjDfeaXYds1b0RydGnHjspv6Tzk+9s45qVhuVxdJcNq/YuHQfRGBp2R78OOpa5/9Ge7IUMLY0+jcMqGJr0mrRrNVqfM3sqNSK6VZO3NckRj43Bwqx2ZXyd007SjJbpRfBns52g0nomoqixGGaVRXUoSdoVIO21F817J34NX508/R2lJTvGdCtRklfxo3pvn2akcn1PZfQHg8VF2jVpVFz1KbU+1waT7jyphsY1lLDLp2aj+0htia26ejhcNUrN5qLUFxlVatFd+b6EzlWg1bCRXNL9knWsGo+JxcGqmIhtO1nstpLmUckjzRmo1SlS5K9KXHaltPOyWUU1zc/EKhbHJk8eplS+ToLodOT/aKlqfW8rDf3d/GXaICqZTjMDy1KpS2tnbjlK17OMlNZc14pdp0D5n1vLwv91l/qlcdTqrTTqYdXTj4uGkmk002nyrzzIqvwZVE8HBJ3tfo357iYGo1a0IsJS5Pb2873tbhbdc25WQAAAAAAAAAAAAAAAAAAAAAAAAAAaHXXTPyXCzmnacvEh9OXHsV32Hz/KTcn+7/AI7Sb+FjTnK4jkYvxaPi/wBo/unfhwXYQSlZWb3XV+hN5u3RzvmObL+s3XhPDDbMjHL+LPt3y7DX6RqZNf8AK+yJKtKYOhCgpRnFy2YtWU09pvxoSu/He97USIaS3pdHR7OHbmUl2mXglwu1iHPyU/Wd0w6yRybwP4S0Zz52l9p1yCyPbCajw5L/AEqABp5gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAazWTSiw2HqVW80rR+m93v7DZnPPC5XlsUqavZ7Unbosv46zHJl442t8ePllI5Hjq7qTlJu7bv3+wvYeCtnx4cO7fLtKaeHd7W9X2Pd1sy3Tduvrz7d8n1ZHPj068mK6UVuSX8c/DqRrMe7yS/ju+1m4rKy43Xq+yPtNRs7VRLnffn6+su0kdp8FuF2cNF+U2zoSIxqVhdjD0l+Sn2vMlB0zpyZdgAKyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBfCpg26NOqvvG4vqla3rROjHx+DhWpypzV4yVmY5MfLGxvjz8MpXAsHiot+MlxeaRl1qlG181ffnm8ud582VyrXHVCtg5OSTlSb8WS9jIiq0r5Jv2HDrLH1X0N45e422kHDJRfO1+7h6izq/o51a8Us7yS5/Xx5+wxKOEqzksm7nXvB7qe6KVarG0mvFTWaXO0evHjcq8+TLHGX6muisPswS5kkZx4lY9OxwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgPhoi3o97MmpOcYxilnKUsrL6u12Nkb8F2p16cp13GrGTajae1FtSs5JrmtbtfMbjwo6X2atOlG7lGG2kld7c5KEcuL2thdrJnqvohYXDUqNleEEnbdtvOdvrNmZN2tb1F3R+g8PRzhShF8+zd97NkAaS3YAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANPX1cozxXyqa2pJQsmslKDbjL1360jcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/9k="
+             alt="">
+    </div>
+    <h3>Стилеты</h3>
+    <div class="img3">
+        <img src="https://static.agora.kz/offer_images/2021/03/29/10/big/2/2dkExDDFL9V/vykidnoj_nozh_stilet_b_84.jpg"
+             alt="">
+
+    </div>
+    <h3>MP-38 и MP-40</h3>
+    <div class="img4">
+        <img src="https://militaryarms.ru/wp-content/uploads/2015/11/mp-38-1.jpg" alt="">
+    </div>
+
+    <h3>Валыны</h3>
+    <div class="img5">
+        <img src="https://region.center/source/KALUGA2/2023/01/47.jpg" alt="">
+    </div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).on("scroll", function () {
+        if ($(document).width() > 785) {
+            if ($(document).scrollTop() > $('header').height() + 10)
+                $('nav').addClass('fixed');
+            else
+                $('nav').removeClass('fixed');
+
+        }
+    });
+</script>
+
+
+</body>
+</html>

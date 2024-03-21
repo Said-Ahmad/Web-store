@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    width: 100%;
+    padding: 100%;
+
+}
+
+a {
+    color: #2ecc71;
+    text-decoration: none;
+    transition: all .6s ease;
+    -ms-transition: all .6s ease;
+}
+
+a:hover {
+    color: #cccccc;
+    text-decoration: none;
+    transition: all .6s ease;
+    -ms-transition: all .6s ease;
+
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto \9;
+
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+header {
+    float: left;
+    background-color: #343434;
+    width: 99.4%;
+    padding: 0.3%;
+    border-bottom: 5px solid #59595a;
+}
+
+header > div#logo > a > img {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+header > div#logo > a > span {
+    color: white;
+    font-size: 2.5em;
+    margin-left: 10px;
+    font-family: 'Suez One';
+}
+
+header > div#logo > a > img {
+    margin-left: 15%;
+}
+
+#logo {
+    float: left;
+    width: 30%;
+}
+
+#about {
+    font-family: 'Roboto Slab';
+    font-size: 22px;
+    float: left;
+    font-size: 1.4em;
+    width: 37%;
+    padding-top: 10px;
+
+}
+
+#about > a {
+    color: white;
+}
+
+#reg_auth {
+    float: right;
+    width: 30%;
+
+}
+nav{
+    background-color: white;
+    width: 99.4%;
+    padding: 0.3%;
+    float: left;
+    border-bottom: 2px solid silver;
+
+}
+

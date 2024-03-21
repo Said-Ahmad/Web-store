@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+    <style>
+        a {
+
+            text-decoration: none;
+            transition: all .6s ease;
+        }
+
+        a {
+            color: #3498db;
+            font-size: 1.5em;
+            margin-left: 5%;
+            cursor: pointer;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        a:last-child {
+            margin-right: 15px;
+        }
+        .container {
+            margin-top: 50px;
+            margin-left:auto;
+            margin-right: auto;
+
+            cursor: pointer;
+            width: 400px;
+            height: 500px;
+            box-shadow: rgba(0, 0, 0, 0.30) 0px 5px 15px;
+
+            border-radius: 5px;
+            padding: 1px;
+            background: rgba(0,0,0,0.50);
+        }
+
+        body {
+            background: url("https://abrakadabra.fun/uploads/posts/2022-01/1641258943_1-abrakadabra-fun-p-oboi-kalashnikov-1.jpg");
+            background-size: 100%;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .container img {
+            width: 300px;
+            height: 350px;
+            padding-top: 20px;
+            padding-left: 50px;
+
+        }
+
+        .container h2 {
+            margin: 0;
+            text-align: center;
+            font-family: 'Roboto Slab', serif;
+
+        }
+        h2{
+            color: white;
+        }
+        h1{
+            color:white;
+        }
+
+    </style>
+</head>
+<body>
+<h1 class="cart" align="center">Личный кабинет</h1>
+<nav>
+    <a th:href="@{/show-products/{id}(id = ${id})}">Товары</a>
+    <a th:href="@{/show-shopping-cart/{id}(id = ${id})}">Корзина</a>
+</nav>
+
+<div class="container">
+
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0TLrHfonQHJDyk_AZxCFhAHAIQf7yIpIRJzP0DCmUxQEYO5sGyucILyC2w92goxICcq0&usqp=CAU"
+         alt="#">
+    <h2 th:text="${user.name}"></h2>
+    <h2 th:text="${user.surname}"></h2>
+    <h2 th:text="${user.email}"></h2>
+
+</div>
+
+
+</body>
+</html>

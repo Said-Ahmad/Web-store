@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style
+    >
+        body{
+            margen: 0;
+            padding: 100%;
+            font-family: sans-serif;
+            background: url("https://abrakadabra.fun/uploads/posts/2022-01/1641258943_1-abrakadabra-fun-p-oboi-kalashnikov-1.jpg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .box {
+            width: 300px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #191919;
+            text-align: center;
+        }
+        .box input[type = "text"],.box input[type = "password"]{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #3498db;
+            padding: 14px 10px;
+            width: 200px;
+            color: aquamarine;
+            border-radius: 24px;
+            transition: 0.25s;
+            tab-size: 20px;
+            outline: none;
+        }
+        .box h1{
+            color: white;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .box input[type = "text"]:focus,.box input[type = "password"]:focus{
+            width: 280px;
+            border-color:#2ecc71;
+        }
+        .box input[type = "submit"]{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2ecc71;
+            padding: 14px 10px;
+            width: 200px;
+            color: aquamarine;
+            border-radius: 24px;
+            transition: 0.25s;
+            tab-size: 20px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .box input[type = "submit"]:hover{
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+<form class="box" th:action="@{/check-login}" method="get" th:object="${user}">
+    <h1>Login</h1>
+    <input type="text" th:field="*{email}" placeholder="Email"/><br/>
+    <input type="password" th:field="*{password}" placeholder="Password"/><br/>
+    <input type="submit" name="" value="LOGIN"/>
+</form>
+
+</body>
+</html>
